@@ -11,10 +11,10 @@ public:
 
 	void displayList();
 
-	void insertAtBeginning(int number);
-	void insertAtEnd(int number);
-	void deleteFromBeginning();
-	void deleteFromEnd();
+	void insertAtBeginning(int amountOfNumbers);
+	void insertAtEnd(int amountOfNumbers);
+	void deleteFromBeginning(int amountOfNumbers);
+	void deleteFromEnd(int amountOfNumbers);
 
 
 };

@@ -8,97 +8,58 @@ using namespace std;
 
 void main()
 {
+	//creating two empty linked lists
 	LinkedList list1;
 	LinkedList list2;
 
-	//reading from a file
+	//reading from input file
 	ifstream readFile;
 	readFile.open("input-a1q2.txt");
 
+	//create variable n to store amount of random numbers from text file
 	int n;
 	readFile >> n;
 	readFile.close();
 
-	cout << n << endl << endl;
-
-
-
+	cout << "Work in progress..." << endl;
 	//insert at front for list1
 	chrono::steady_clock::time_point begin = chrono::steady_clock::now();
-	for (int i = 0; i < n; i++)
-	{
-		list1.insertAtBeginning(rand());
-	}
-
+	list1.insertAtBeginning(n);
 	chrono::steady_clock::time_point end = chrono::steady_clock::now();
 	double time1 = chrono::duration_cast<chrono::milliseconds>(end - begin).count();
-
-	cout << "\nList1 inserted from front" << endl;
 	//list1.displayList();
-	
-	cout << "\n";
-
-
-
-
-
+	cout << "\n\n";
+	cout << "Task 1 completed." << endl;
 
 	//insert at back for list2
 	chrono::steady_clock::time_point begin2 = chrono::steady_clock::now();
-	for (int i = 0; i < n; i++)
-	{
-		list2.insertAtEnd(rand());
-	}
-
+	list2.insertAtBeginning(1);
+	list2.insertAtEnd(n);
 	chrono::steady_clock::time_point end2 = chrono::steady_clock::now();
 	double time2 = chrono::duration_cast<chrono::milliseconds>(end2 - begin2).count();
-
-	cout << "\nList2 inserted from back" << endl;
 	//list2.displayList();
 	cout << "\n\n";
+	cout << "Task 2 completed." << endl;
 
-
-
-
-	cout << "\nList1 before deletion" << endl;
-	//list1.displayList();
-
+	// delete from front list1
 	chrono::steady_clock::time_point begin3 = chrono::steady_clock::now();
-	for (int i = 0; i < n; i++)
-	{
-		list1.deleteFromBeginning();
-	}
+	list1.deleteFromBeginning(n);
 	chrono::steady_clock::time_point end3 = chrono::steady_clock::now();
 	double time3 = chrono::duration_cast<chrono::milliseconds>(end3 - begin3).count();
+	//list1.displayList();
+	cout << "\n\n";
+	cout << "Task 3 completed." << endl;
 
-	cout << "\nList1 deleted from front" << endl;
-	
-	cout << "\n";
-
-
-
-
-	cout << "\nList2 before deletion" << endl;
-	//list2.displayList();
+	// delete from back list2
 	chrono::steady_clock::time_point begin4 = chrono::steady_clock::now();
-	for (int i = 0; i < n; i++)
-	{
-		list2.deleteFromEnd();
-	}
+	list2.deleteFromEnd(n);
 	chrono::steady_clock::time_point end4 = chrono::steady_clock::now();
 	double time4 = chrono::duration_cast<chrono::milliseconds>(end4 - begin4).count();
-
-	cout << "\nList2 deleted from back" << endl;
-	
+	//list2.displayList();
 	cout << "\n\n";
+	cout << "Task 4 completed." << endl;
 
-
-
-
-
-
-
-
+	//write time recorded into file
 	ofstream  writeFile;
 	writeFile.open("output-a1q2.txt");
 
@@ -108,12 +69,5 @@ void main()
 	writeFile << time4 << "ms" << endl;
 	writeFile.close();
 
-
-	cout << "\n\n";
 	system("pause");
-	
-
-	
-	 
-	
 }

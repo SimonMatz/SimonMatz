@@ -11,56 +11,67 @@ void LinkedList::displayList()
 	}
 }
 
-void LinkedList::insertAtBeginning(int number)
+void LinkedList::insertAtBeginning(int amountOfNumbers)
 {
+	int number = rand();
+	for (int i = 0; i < amountOfNumbers; i++)
+	{
 	Node* newNode = new Node(number);
-
 	newNode->next = head;
-
 	head = newNode;
+	}	
 }
 
-void LinkedList::insertAtEnd(int number)
+void LinkedList::insertAtEnd(int amountOfNumbers)
 {
-
-	if (head == NULL)
+	int number = rand();
+	
+	for (int i = 0; i < amountOfNumbers; i++)
 	{
-		insertAtBeginning(number);
-		return;
+		if (head == NULL)
+		{
+			insertAtBeginning(amountOfNumbers);
+			return;
+		}
+		Node* newNode = new Node(number);
+		Node* iterator = head;
+		while (iterator->next != NULL)
+		{
+			iterator = iterator->next;
+		}
+		iterator->next = newNode;
 	}
-	Node* newNode = new Node(number);
-	Node* iterator = head;
-	while (iterator->next != NULL)
-	{
-		iterator = iterator->next;
-
-	}
-	iterator->next = newNode;
 }
 
-void LinkedList::deleteFromBeginning()
+void LinkedList::deleteFromBeginning(int amountOfNumbers)
 {
-	if (head == NULL)
-		return;
+	for (int i = 0; i < amountOfNumbers; i++)
+	{
+		if (head == NULL)
+			return;
 
-	Node* iterator = head;
-	head = head->next;
-	delete iterator;
+		Node* iterator = head;
+		head = head->next;
+		delete iterator;
+	}
 }
 
-void LinkedList::deleteFromEnd()
+
+void LinkedList::deleteFromEnd(int amountOfNumbers)
 {
-	if (head == NULL)
-		return;
-
-	Node* iterator = head;
-	Node* previous = head;
-	while (iterator->next != NULL)
+	for (int i = 0; i < amountOfNumbers; i++)
 	{
-		previous = iterator;
-		iterator = iterator->next;
-	}
-	previous->next = NULL;
-	delete iterator;
+		if (head == NULL)
+			return;
 
+		Node* iterator = head;
+		Node* previous = head;
+		while (iterator->next != NULL)
+		{
+			previous = iterator;
+			iterator = iterator->next;
+		}
+		previous->next = NULL;
+		delete iterator;
+	}
 }
