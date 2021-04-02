@@ -21,48 +21,44 @@ void main()
 	readFile >> n;
 	readFile.close();
 
-	cout << "Work in progress..." << endl;
-	//insert at front for list1
+	//insert at front for list1 and take start and end time to calculate time for task
 	chrono::steady_clock::time_point begin = chrono::steady_clock::now();
 	list1.insertAtBeginning(n);
 	chrono::steady_clock::time_point end = chrono::steady_clock::now();
-	double time1 = chrono::duration_cast<chrono::milliseconds>(end - begin).count();
-	//list1.displayList();
-	cout << "\n\n";
+	int time1 = chrono::duration_cast<chrono::milliseconds>(end - begin).count();
+
 	cout << "Task 1 completed." << endl;
 
-	//insert at back for list2
+	//insert at back for list2 and take start and end time to calculate time for task
 	chrono::steady_clock::time_point begin2 = chrono::steady_clock::now();
-	list2.insertAtBeginning(1);
 	list2.insertAtEnd(n);
 	chrono::steady_clock::time_point end2 = chrono::steady_clock::now();
-	double time2 = chrono::duration_cast<chrono::milliseconds>(end2 - begin2).count();
-	//list2.displayList();
+	int time2 = chrono::duration_cast<chrono::milliseconds>(end2 - begin2).count();
+
 	cout << "\n\n";
 	cout << "Task 2 completed." << endl;
 
-	// delete from front list1
+	// delete from front list1 and take start and end time to calculate time for task
 	chrono::steady_clock::time_point begin3 = chrono::steady_clock::now();
 	list1.deleteFromBeginning(n);
 	chrono::steady_clock::time_point end3 = chrono::steady_clock::now();
-	double time3 = chrono::duration_cast<chrono::milliseconds>(end3 - begin3).count();
-	//list1.displayList();
+	int time3 = chrono::duration_cast<chrono::milliseconds>(end3 - begin3).count();
+
 	cout << "\n\n";
 	cout << "Task 3 completed." << endl;
 
-	// delete from back list2
+	// delete from back list2 and take start and end time to calculate time for task
 	chrono::steady_clock::time_point begin4 = chrono::steady_clock::now();
 	list2.deleteFromEnd(n);
 	chrono::steady_clock::time_point end4 = chrono::steady_clock::now();
-	double time4 = chrono::duration_cast<chrono::milliseconds>(end4 - begin4).count();
-	//list2.displayList();
+	int time4 = chrono::duration_cast<chrono::milliseconds>(end4 - begin4).count();
+
 	cout << "\n\n";
 	cout << "Task 4 completed." << endl;
 
 	//write time recorded into file
 	ofstream  writeFile;
 	writeFile.open("output-a1q2.txt");
-
 	writeFile << time1 << "ms" << endl;
 	writeFile << time2 << "ms" << endl;
 	writeFile << time3 << "ms" << endl;

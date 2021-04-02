@@ -1,16 +1,6 @@
 #include "LinkedList.h"
 #include <string>
 
-void LinkedList::displayList()
-{
-	Node* iterator = head;
-	while (iterator != NULL)
-	{
-		cout << iterator->number << " ";
-		iterator = iterator->next;
-	}
-}
-
 void LinkedList::insertAtBeginning(int amountOfNumbers)
 {
 	int number = rand();
@@ -30,11 +20,13 @@ void LinkedList::insertAtEnd(int amountOfNumbers)
 	{
 		if (head == NULL)
 		{
-			insertAtBeginning(amountOfNumbers);
-			return;
+			insertAtBeginning(1);
+			continue;
 		}
+
 		Node* newNode = new Node(number);
 		Node* iterator = head;
+
 		while (iterator->next != NULL)
 		{
 			iterator = iterator->next;
@@ -55,7 +47,6 @@ void LinkedList::deleteFromBeginning(int amountOfNumbers)
 		delete iterator;
 	}
 }
-
 
 void LinkedList::deleteFromEnd(int amountOfNumbers)
 {
